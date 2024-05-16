@@ -3,8 +3,7 @@ package com.addressbook.app;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertAll;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class ContactTest {
     @Test
@@ -21,5 +20,18 @@ public class ContactTest {
                 () -> assertEquals(testName, testContact.getName()),
                 () -> assertEquals(testEmail, testContact.getEmail()),
                 () -> assertEquals(testPhoneNumber, testContact.getPhoneNumber()));
+    }
+
+    @Test
+    @DisplayName("An exception is thrown if the name property is null or empty")
+    void testExceptionIsThrownWhenNameIsNullOrEmpty() {
+        // Arrange
+        String testName = "";
+        String testEmail = "dasdas";
+        String testPhoneNumber = "dasdas";
+        // Act
+        // Assert
+        assertThrows(IllegalArgumentException.class,
+                () -> new Contact(testName, testEmail, testPhoneNumber));
     }
 }

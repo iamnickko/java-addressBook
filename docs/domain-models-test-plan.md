@@ -20,5 +20,8 @@ classDiagram
         +setEmail() void
         +getPhoneNumber() String
         +setPhoneNumber() void
+        -validateName() void
+        -validateEmail() void
+        -validatePhoneNumber() void
     }
 ```
