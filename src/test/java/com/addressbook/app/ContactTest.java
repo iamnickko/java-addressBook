@@ -23,8 +23,8 @@ public class ContactTest {
     }
 
     @Test
-    @DisplayName("An exception is thrown if the name property is null or empty")
-    void testExceptionIsThrownWhenNameIsNullOrEmpty() {
+    @DisplayName("An exception is thrown if the name property is empty")
+    void testExceptionIsThrownWhenNameIsEmpty() {
         // Arrange
         String testName = "";
         String testEmail = "dasdas";
@@ -36,8 +36,8 @@ public class ContactTest {
     }
 
     @Test
-    @DisplayName("An exception is thrown if the email property is null or empty")
-    void testAnExceptionIsThrownWhenEmailIsNullOrEmpty() {
+    @DisplayName("An exception is thrown if the email property is empty")
+    void testAnExceptionIsThrownWhenEmailIsEmpty() {
         // Arrange
         String testName = "iowajf";
         String testEmail = "";
@@ -49,8 +49,8 @@ public class ContactTest {
     }
 
     @Test
-    @DisplayName("An exception is thrown if the phoneNumber property is null or empty")
-    void testAnExceptionIsThrownWhenPhoneNumberIsNullOrEmpty() {
+    @DisplayName("An exception is thrown if the phoneNumber property is empty")
+    void testAnExceptionIsThrownWhenPhoneNumberIsEmpty() {
         // Arrange
         String testName = "iowajf";
         String testEmail = "dadasd";
@@ -60,4 +60,45 @@ public class ContactTest {
         assertThrows(IllegalArgumentException.class,
                 () -> new Contact(testName, testEmail, testPhoneNumber));
     }
+
+    @Test
+    @DisplayName("An exception is thrown if the name property is null")
+    void testExceptionIsThrownWhenNameIsNull() {
+        // Arrange
+        String testName = null;
+        String testEmail = "dasdas";
+        String testPhoneNumber = "dasdas";
+        // Act
+        // Assert
+        assertThrows(IllegalArgumentException.class,
+                () -> new Contact(testName, testEmail, testPhoneNumber));
+    }
+
+    @Test
+    @DisplayName("An exception is thrown if the email property is null")
+    void testAnExceptionIsThrownWhenEmailIsNull() {
+        // Arrange
+        String testName = "iowajf";
+        String testEmail = null;
+        String testPhoneNumber = "01234567890";
+        // Act
+        // Assert
+        assertThrows(IllegalArgumentException.class,
+                () -> new Contact(testName, testEmail, testPhoneNumber));
+    }
+
+    @Test
+    @DisplayName("An exception is thrown if the phoneNumber property is null")
+    void testAnExceptionIsThrownWhenPhoneNumberIsNull() {
+        // Arrange
+        String testName = "iowajf";
+        String testEmail = "dadasd";
+        String testPhoneNumber = null;
+        // Act
+        // Assert
+        assertThrows(IllegalArgumentException.class,
+                () -> new Contact(testName, testEmail, testPhoneNumber));
+    }
+
+
 }
