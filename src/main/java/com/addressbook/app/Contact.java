@@ -12,6 +12,9 @@ public class Contact {
         if (email == null || email.trim().isEmpty()) {
             throw new IllegalArgumentException("Email cannot be null or empty.");
         }
+        if (phoneNumber == null || phoneNumber.trim().isEmpty()) {
+            throw new IllegalArgumentException("Email cannot be null or empty.");
+        }
         this.name = name;
         this.email = email;
         this.phoneNumber = phoneNumber;
