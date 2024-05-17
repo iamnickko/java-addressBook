@@ -63,7 +63,7 @@ public class ValidateTest {
             }
 
             @Test
-            @DisplayName("Test validateEmailFalseIfInvalid")
+            @DisplayName("Test validate Email False If Invalid")
             void testValidateEmailFalseIfInvalid() {
                 // Arrange
                 // Act
@@ -71,8 +71,14 @@ public class ValidateTest {
                 assertFalse(Validate.validateEmail(invalidEmail));
             }
 
+            @Test
+            @DisplayName("Test validateEmail false if whitespace")
+            void testValidateEmailFalseIfWhiteSpace() {
+                // Arrange
+                // Act
+                // Assert
+                assertFalse(Validate.validateEmail(whiteSpace));
+            }
         }
-
-
     }
 }
