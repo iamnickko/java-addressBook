@@ -47,14 +47,20 @@ public class ValidateTest {
         }
 
 
-//    @Nested
-//    class testEmailStrings {
-//        String validEmail = "nick@email.com";
-//        String isNull = null;
-//        String emailRegex = "/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g";
-//
-//    @Test
-//        @DisplayName("")
-//    }
+    @Nested
+    class testEmailStrings {
+        String validEmail = "nick@email.com";
+        String invalidEmail = "nickemail";
+        String whiteSpace = "  ";
+
+    @Test
+        @DisplayName("Test validateEmail true if valid")
+        void testValidateEmailTrueIfValid() {
+        // Arrange
+        // Act
+        // Assert
+        assertTrue(Validate.validateEmail(validEmail));
+    }
+    }
     }
 }
