@@ -99,7 +99,7 @@ public class ValidateTest {
         }
 
         @Test
-        @DisplayName("Test ValidatePhoneNumber false if invalidNotStartZero")
+        @DisplayName("Test validatePhoneNumber false if invalidNotStartZero")
         void testValidatePhoneNumberFalseIfInvalidNotStartZero() {
             // Arrange
             // Act
@@ -107,5 +107,13 @@ public class ValidateTest {
             assertFalse(Validate.validatePhoneNumber(invalidNotStartZero));
         }
 
+        @Test
+        @DisplayName("Test validatePhoneNumber false if invalidLengthNumber")
+        void testValidatePhoneNumberFalseIfInvalidLengthNumber() {
+            // Assert
+            // Act
+            // Assert
+            assertFalse(Validate.validatePhoneNumber(invalidLengthNumber));
+        }
     }
 }
