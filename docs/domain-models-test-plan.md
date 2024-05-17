@@ -8,6 +8,8 @@ classDiagram
         +getContacts() ArrayList<Contact>
         +addContact(contact Contact) void
         +removeContact(contact Contact) void
+        -checkDuplicateEmail() boolean
+        -checkDuplicatePhoneNumber() boolean
     }
     class Contact {
         -name String
