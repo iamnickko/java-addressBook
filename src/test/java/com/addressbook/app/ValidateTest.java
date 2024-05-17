@@ -115,5 +115,14 @@ public class ValidateTest {
             // Assert
             assertFalse(Validate.validatePhoneNumber(invalidLengthNumber));
         }
+
+        @Test
+        @DisplayName("Test validatePhoneNumber false if whiteSpace")
+        void testValidatePhoneNumberFalseIfWhiteSpace() {
+            // Assert
+            // Act
+            // Assert
+            assertFalse(Validate.validatePhoneNumber(whiteSpace));
+        }
     }
 }
