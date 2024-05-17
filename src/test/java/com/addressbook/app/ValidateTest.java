@@ -4,8 +4,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 @DisplayName("Validate class tests")
 public class ValidateTest {
@@ -26,23 +25,25 @@ public class ValidateTest {
         }
 
         @Test
-        @DisplayName("Test validateName throws exception if whiteSpace")
-        void testValidateNameThrowsExceptionIfWhiteSpace() {
+        @DisplayName("Test validateName false if whiteSpace")
+        void testValidateNameFalseIfWhiteSpace() {
             // Arrange
             // Act
             // Assert
-            assertThrows(IllegalArgumentException.class,
-                    () -> Validate.validateName(whiteSpace));
+            assertFalse(Validate.validateName(whiteSpace));
+//            assertThrows(IllegalArgumentException.class,
+//                    () -> Validate.validateName(whiteSpace));
         }
 
         @Test
-        @DisplayName("Test validateName throws exception if invalid")
-        void testValidateNameThrowsExceptionIfInvalid() {
+        @DisplayName("Test validateName false if invalid")
+        void testValidateNameFalseIfInvalid() {
             // Arrange
             // Act
             // Assert
-            assertThrows(IllegalArgumentException.class,
-                    ()-> Validate.validateName(invalidName));
+            assertFalse(Validate.validateName(invalidName));
+//            assertThrows(IllegalArgumentException.class,
+//                    ()-> Validate.validateName(invalidName));
         }
 
 

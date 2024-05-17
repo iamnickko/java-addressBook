@@ -5,9 +5,9 @@ public abstract class Validate {
     public static final String nameRegex = "^[a-zA-Z]{2,} [a-zA-Z]+$";
 
     public static boolean validateName(String name) {
-        if (!name.matches(nameRegex)){
-            throw new IllegalArgumentException("Please enter a valid name.");
+        if (name == null) {
+            throw new IllegalArgumentException("Name cannot be null.");
         }
-        return true;
+        return name.matches(nameRegex);
     }
 }

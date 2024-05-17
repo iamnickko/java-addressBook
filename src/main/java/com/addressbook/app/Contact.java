@@ -5,8 +5,9 @@ public class Contact {
     private String email;
     private String phoneNumber;
 
-    public Contact(String name, String email, String phoneNumber){
-        if (name == null || name.trim().isEmpty()) {
+    public Contact(String name, String email, String phoneNumber) {
+
+        if (!Validate.validateName(name)) {
             throw new IllegalArgumentException("Name cannot be null or empty.");
         }
         if (email == null || email.trim().isEmpty()) {
@@ -19,6 +20,7 @@ public class Contact {
         this.email = email;
         this.phoneNumber = phoneNumber;
     }
+
     public String getName() {
         return name;
     }
