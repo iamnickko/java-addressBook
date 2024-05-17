@@ -3,7 +3,7 @@
 ```mermaid
 classDiagram
     class AddressBook {
-        -contacts ArrayList<Contact>
+        -ArrayList~Contact~ contacts
         +AddressBook()
         +getContacts() ArrayList<Contact>
         +addContact(Contact Contact) void
@@ -21,7 +21,7 @@ classDiagram
         +getPhoneNumber() String
         +setPhoneNumber() void
     }
-    class Validate {
+    class abstract Validate {
         +validateName()$ boolean
         +validateEmail()$ boolean
         +validatePhoneNumber()$ boolean
