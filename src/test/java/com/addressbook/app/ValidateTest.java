@@ -26,13 +26,23 @@ public class ValidateTest {
         }
 
         @Test
-        @DisplayName("Test validateName throws error if whiteSpace")
-        void testValidateNameThrowsErrorIfWhiteSpace() {
+        @DisplayName("Test validateName throws exception if whiteSpace")
+        void testValidateNameThrowsExceptionIfWhiteSpace() {
             // Arrange
             // Act
             // Assert
             assertThrows(IllegalArgumentException.class,
                     () -> Validate.validateName(whiteSpace));
+        }
+
+        @Test
+        @DisplayName("Test validateName throws exception if invalid")
+        void testValidateNameThrowsExceptionIfInvalid() {
+            // Arrange
+            // Act
+            // Assert
+            assertThrows(IllegalArgumentException.class,
+                    ()-> Validate.validateName(invalidName));
         }
 
 
