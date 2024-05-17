@@ -40,7 +40,7 @@ public class ContactTest {
     void testAnExceptionIsThrownWhenEmailIsEmpty() {
         // Arrange
         String testName = "iowajf";
-        String testEmail = "";
+        String testEmail = null;
         String testPhoneNumber = "01234567890";
         // Act
         // Assert
@@ -79,7 +79,7 @@ public class ContactTest {
     void testAnExceptionIsThrownWhenEmailIsNull() {
         // Arrange
         String testName = "iowajf";
-        String testEmail = null;
+        String testEmail = "nick@email.com";
         String testPhoneNumber = "01234567890";
         // Act
         // Assert

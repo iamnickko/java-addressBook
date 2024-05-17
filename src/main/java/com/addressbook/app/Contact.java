@@ -8,13 +8,13 @@ public class Contact {
     public Contact(String name, String email, String phoneNumber) {
 
         if (!Validate.validateName(name)) {
-            throw new IllegalArgumentException("Name cannot be null or empty.");
+            throw new IllegalArgumentException("Name must include first and last name.");
         }
-        if (email == null || email.trim().isEmpty()) {
-            throw new IllegalArgumentException("Email cannot be null or empty.");
+        if (!Validate.validateEmail(email)) {
+            throw new IllegalArgumentException("Email must match a valid format.");
         }
         if (phoneNumber == null || phoneNumber.trim().isEmpty()) {
-            throw new IllegalArgumentException("Email cannot be null or empty.");
+            throw new IllegalArgumentException("Phone number cannot be null or empty.");
         }
         this.name = name;
         this.email = email;
