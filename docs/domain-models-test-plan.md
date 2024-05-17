@@ -6,10 +6,8 @@ classDiagram
         -contacts ArrayList<Contact>
         +AddressBook()
         +getContacts() ArrayList<Contact>
-        +addContact(contact Contact) void
-        +removeContact(contact Contact) void
-        -checkDuplicateEmail() boolean
-        -checkDuplicatePhoneNumber() boolean
+        +addContact(Contact Contact) void
+        +removeContact(Contact Contact) void
     }
     class Contact {
         -name String
@@ -22,8 +20,12 @@ classDiagram
         +setEmail() void
         +getPhoneNumber() String
         +setPhoneNumber() void
-        -validateName() void
-        -validateEmail() void
-        -validatePhoneNumber() void
+    }
+    class Validate {
+        +validateName()$ boolean
+        +validateEmail()$ boolean
+        +validatePhoneNumber()$ boolean
+        +checkDuplicateEmail()$ boolean
+        +checkDuplicatePhoneNumber()$ boolean
     }
 ```
