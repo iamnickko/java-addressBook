@@ -13,8 +13,8 @@ public class Contact {
         if (!Validate.validateEmail(email)) {
             throw new IllegalArgumentException("Email must match a valid format.");
         }
-        if (phoneNumber == null || phoneNumber.trim().isEmpty()) {
-            throw new IllegalArgumentException("Phone number cannot be null or empty.");
+        if (!Validate.validatePhoneNumber(phoneNumber)) {
+            throw new IllegalArgumentException("Phone number must match a valid format.");
         }
         this.name = name;
         this.email = email;

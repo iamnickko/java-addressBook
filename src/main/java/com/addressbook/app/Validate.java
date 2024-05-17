@@ -17,10 +17,16 @@ public abstract class Validate {
     }
 
     public static boolean validateEmail(String email) {
+        if (email == null) {
+            throw new IllegalArgumentException("Email cannot be null.");
+        }
         return email.matches(emailRegex);
     }
 
     public static boolean validatePhoneNumber(String phoneNumber) {
+        if (phoneNumber == null) {
+            throw new IllegalArgumentException("Phone number cannot be null.");
+        }
         return phoneNumber.matches(phoneNumberRegex);
     }
 }
