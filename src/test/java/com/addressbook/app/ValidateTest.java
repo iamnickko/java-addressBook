@@ -81,6 +81,7 @@ public class ValidateTest {
             assertFalse(Validate.validateEmail(whiteSpace));
         }
     }
+
     @Nested
     class testPhoneNumberStrings {
         String validNumber = "07888888888";
@@ -88,14 +89,23 @@ public class ValidateTest {
         String invalidLengthNumber = "12345";
         String whiteSpace = "  ";
 
-   @Test
+        @Test
         @DisplayName("Test validatePhoneNumber true if valid.")
         void testValidatePhoneNumberTrueIfValid() {
-       // Arrange
-       // Act
-       // Assert
-       assertTrue(Validate.validatePhoneNumber(validNumber));
-   }
+            // Arrange
+            // Act
+            // Assert
+            assertTrue(Validate.validatePhoneNumber(validNumber));
+        }
+
+        @Test
+        @DisplayName("Test ValidatePhoneNumber false if invalidNotStartZero")
+        void testValidatePhoneNumberFalseIfInvalidNotStartZero() {
+            // Arrange
+            // Act
+            // Assert
+            assertFalse(Validate.validatePhoneNumber(invalidNotStartZero));
+        }
 
     }
 }
