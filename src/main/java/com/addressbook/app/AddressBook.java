@@ -13,11 +13,12 @@ public class AddressBook {
         return contacts;
     }
 
-    public void addContact(Object Contact) {
-        this.contacts.add((com.addressbook.app.Contact) Contact);
+    public void addContact(Contact contact) {
+        if (contact == null) throw new IllegalArgumentException("Contact cannot be null.");
+        this.contacts.add(contact);
     }
 
-    public void removeContact(Object Contact) {
-        this.contacts.remove((com.addressbook.app.Contact) Contact);
+    public void removeContact(Contact contact) {
+        this.contacts.remove(contact);
     }
 }

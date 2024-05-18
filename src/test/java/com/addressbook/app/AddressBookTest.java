@@ -4,6 +4,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.mock;
 
 public class AddressBookTest {
@@ -35,5 +36,15 @@ public class AddressBookTest {
         testAddressBook.removeContact(mockContact1);
         // Assert
         assertEquals(expected, testAddressBook.getContacts().size());
+    }
+
+    @Test
+    @DisplayName("Test addContact throws exception when contact is null")
+    void testAddContactThrowsExceptionWhenContactIsNull() {
+        // Arrange
+        AddressBook testAddressBook = new AddressBook();
+        // Act
+        // Assert
+        assertThrows(IllegalArgumentException.class, () -> testAddressBook.addContact(null));
     }
 }

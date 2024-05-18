@@ -5,6 +5,8 @@ import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 @DisplayName("Validate class tests")
 public class ValidateTest {
@@ -125,4 +127,22 @@ public class ValidateTest {
             assertFalse(Validate.validatePhoneNumber(whiteSpace));
         }
     }
+
+//    @Nested
+//    class duplicateStrings {
+//
+//
+//        @Test
+//        @DisplayName("Test isDuplicateEmail true if value already exists")
+//        void testIsDuplicateEmailTrueIfValueAlreadyExists() {
+////            // Arrange
+////            Contact mockContact = mock(Contact.class);
+////            AddressBook testAddressBook = mock(AddressBook.class);
+////            when(testAddressBook.getContacts()).thenReturn();
+////            // Act
+////            // Assert
+//
+//
+//        }
+//    }
 }

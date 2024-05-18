@@ -6,16 +6,13 @@ public class Contact {
     private String phoneNumber;
 
     public Contact(String name, String email, String phoneNumber) {
+        if (!Validate.validateName(name)) throw new IllegalArgumentException("Name must include first and last name.");
 
-        if (!Validate.validateName(name)) {
-            throw new IllegalArgumentException("Name must include first and last name.");
-        }
-        if (!Validate.validateEmail(email)) {
-            throw new IllegalArgumentException("Email must match a valid format.");
-        }
-        if (!Validate.validatePhoneNumber(phoneNumber)) {
+        if (!Validate.validateEmail(email)) throw new IllegalArgumentException("Email must match a valid format.");
+
+        if (!Validate.validatePhoneNumber(phoneNumber))
             throw new IllegalArgumentException("Phone number must match a valid format.");
-        }
+
         this.name = name;
         this.email = email;
         this.phoneNumber = phoneNumber;

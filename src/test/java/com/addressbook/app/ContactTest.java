@@ -12,8 +12,6 @@ public class ContactTest {
 
     @Nested
     class validConstructorArguments {
-
-
         @Test
         @DisplayName("Constructor sets values when valid.")
         public void testConstructorSetsValuesWhenValid() {
