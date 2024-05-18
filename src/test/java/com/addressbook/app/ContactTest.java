@@ -228,5 +228,17 @@ public class ContactTest {
             // Assert
             assertEquals(expected, testContact.getEmail());
         }
+
+        @Test
+        @DisplayName("Test setPhoneNumber sets a new valid phone number")
+        void testSetPhoneNumberSetsANewValidPhoneNumber() {
+            // Arrange
+            Contact testContact = new Contact(validName, validEmail, validPhone);
+            String expected = newValidPhone;
+            // Act
+            testContact.setPhoneNumber(newValidPhone);
+            // Assert
+            assertEquals(expected, testContact.getPhoneNumber());
+        }
     }
 }
