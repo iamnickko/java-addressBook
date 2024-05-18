@@ -132,6 +132,16 @@ public class ContactTest {
             assertThrows(IllegalArgumentException.class, () -> testContact.setName(invalidName));
         }
 
+        @Test
+        @DisplayName("Test setEmail throws exception if invalid value")
+        void testSetEmailThrowsExceptionIfInvalidValue() {
+            // Arrange
+            Contact testContact = new Contact(validName, validEmail, validPhone);
+            // Act
+            // Assert
+            assertThrows(IllegalArgumentException.class, ()-> testContact.setEmail(invalidEmail));
+        }
+
     }
 
 }

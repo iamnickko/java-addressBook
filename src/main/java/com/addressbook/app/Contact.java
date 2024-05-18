@@ -32,6 +32,7 @@ public class Contact {
     }
 
     public void setEmail(String email) {
+        if (!Validate.validateEmail(email)) throw new IllegalArgumentException("Email must match a valid format.");
         this.email = email;
     }
 
