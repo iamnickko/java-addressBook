@@ -1,5 +1,6 @@
 package com.addressbook.app;
 
+import net.bytebuddy.pool.TypePool;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -128,6 +129,27 @@ public class ValidateTest {
         }
     }
 
+    @Nested
+    class validateContactsForAddressBook {
+
+        String validName = "nick ko";
+        String validEmail = "email@email.com";
+        String validPhone = "07888888888";
+
+        @Test
+        @DisplayName("Test validateContact throws exception if contact is null")
+        void testValidateContactThrowsExceptionIfContactIsNull() {
+            // Arrange
+            Contact mockContact = mock(Contact.class);
+            when(mockContact.getName()).thenReturn(validName);
+            when(mockContact.getEmail()).thenReturn(validEmail);
+            when(mockContact.getPhoneNumber()).thenReturn(validPhone);
+            // Act
+            // Assert
+            assertTrue(Validate.validateContact(mockContact));
+        }
+
+
 //    @Nested
 //    class duplicateStrings {
 //
@@ -145,4 +167,5 @@ public class ValidateTest {
 //
 //        }
 //    }
+    }
 }
