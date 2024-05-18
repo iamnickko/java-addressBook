@@ -23,6 +23,7 @@ public class Contact {
     }
 
     public void setName(String name) {
+        if (!Validate.validateName(name)) throw new IllegalArgumentException("Name must include first and last name.");
         this.name = name;
     }
 
@@ -41,4 +42,6 @@ public class Contact {
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
+
+    // Override toString method for sout printing
 }

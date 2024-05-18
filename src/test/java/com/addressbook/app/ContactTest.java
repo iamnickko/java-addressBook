@@ -112,5 +112,26 @@ public class ContactTest {
 
     }
 
+    @Nested
+    class testSettersThrowExceptions {
+        String validName = "Nick Ko";
+        String validEmail = "nick@gmail.com";
+        String validPhone = "07888888888";
+        String invalidName = "Henry33";
+        String invalidEmail = "henrynodomain.com";
+        String invalidPhone = "henrysPhone";
+
+
+        @Test
+        @DisplayName("Test setName throws exception if invalid value")
+        void testSetNameThrowsExceptionIfInvalidValue() {
+            // Arrange
+            Contact testContact = new Contact(validName, validEmail, validPhone);
+            // Act
+            // Assert
+            assertThrows(IllegalArgumentException.class, () -> testContact.setName(invalidName));
+        }
+
+    }
 
 }
