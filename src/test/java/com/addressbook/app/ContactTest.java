@@ -241,4 +241,22 @@ public class ContactTest {
             assertEquals(expected, testContact.getPhoneNumber());
         }
     }
+
+    @Nested
+    class testToStringOverride {                // need to come back to this one
+
+        String validName = "Juggernaut Kitkat";
+        String validEmail = "kittykat@meowmeow.com";
+        String validPhoneNumber = "07555555555";
+
+        @Test
+        @DisplayName("Test override toString contains expected name")
+        void testOverrideToStringContainsExpectedName() {
+            // Arrange
+            Contact testContact = new Contact(validName, validEmail, validPhoneNumber);
+            String expectedName = validName;
+            // Act
+            // Assert
+        }
+    }
 }
