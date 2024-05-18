@@ -146,8 +146,9 @@ public class ValidateTest {
             when(mockContact.getPhoneNumber()).thenReturn(validPhone);
             // Act
             // Assert
-            assertTrue(Validate.validateContact(mockContact));
+            assertThrows(IllegalArgumentException.class, () -> Validate.validateContact(null));
         }
+
 
 
 //    @Nested
