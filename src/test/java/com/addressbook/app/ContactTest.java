@@ -196,6 +196,8 @@ public class ContactTest {
     @Nested
     class testSettersSetValidValues {
 
+        // maybe an unnecessary test suite but it adds test coverage!
+
         String validName = "Nick Ko";
         String validEmail = "nick@gmail.com";
         String validPhone = "07888888888";
@@ -204,7 +206,7 @@ public class ContactTest {
         String newValidPhone = "07999999999";
 
         @Test
-        @DisplayName("Test setname sets a new valid value")
+        @DisplayName("Test setName sets a new valid value")
         void testSetNameSetsANewValidValue () {
             // Arrange
             Contact testContact = new Contact(validName, validEmail, validPhone);
@@ -213,6 +215,18 @@ public class ContactTest {
             testContact.setName(newValidName);
             // Assert
             assertEquals(expected, testContact.getName());
+        }
+
+        @Test
+        @DisplayName("Test setEmail sets a new valid email")
+        void testSetEmailSetsANewValidEmail() {
+            // Arrange
+            Contact testContact = new Contact(validName, validEmail, validPhone);
+            String expected = newValidEmail;
+            // Act
+            testContact.setEmail(newValidEmail);
+            // Assert
+            assertEquals(expected, testContact.getEmail());
         }
     }
 }
