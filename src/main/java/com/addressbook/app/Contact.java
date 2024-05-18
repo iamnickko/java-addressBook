@@ -41,6 +41,8 @@ public class Contact {
     }
 
     public void setPhoneNumber(String phoneNumber) {
+        if (!Validate.validatePhoneNumber(phoneNumber))
+            throw new IllegalArgumentException("Phone number must match a valid format");
         this.phoneNumber = phoneNumber;
     }
 

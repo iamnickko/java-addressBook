@@ -31,7 +31,7 @@ public class ContactTest {
     }
 
     @Nested
-    class testValuesNull {
+    class testConstructorValuesNull {
         String nullTestName = null;
         String validTestName = "Nick Ko";
         String nullTestEmail = null;
@@ -72,7 +72,7 @@ public class ContactTest {
     }
 
     @Nested
-    class testValuesEmpty {
+    class testConstructorValuesEmpty {
         String emptyTestName = "  ";
         String validTestName = "Nick Ko";
         String emptyTestEmail = "  ";
@@ -113,7 +113,7 @@ public class ContactTest {
     }
 
     @Nested
-    class testSettersThrowExceptions {
+    class testSettersThrowExceptionsWhenInvalid {
         String validName = "Nick Ko";
         String validEmail = "nick@gmail.com";
         String validPhone = "07888888888";
@@ -140,6 +140,36 @@ public class ContactTest {
             // Act
             // Assert
             assertThrows(IllegalArgumentException.class, ()-> testContact.setEmail(invalidEmail));
+        }
+
+        @Test
+        @DisplayName("Test setPhoneNumber throws exception if invalid value")
+        void testSetPhoneNumberThrowsExceptionIfInvalidValue() {
+            // Arrange
+            Contact testContact = new Contact(validName, validEmail, validPhone);
+            // Act
+            // Assert
+            assertThrows(IllegalArgumentException.class, () -> testContact.setPhoneNumber(invalidPhone));
+        }
+
+    }
+
+    @Nested
+    class testSettersThrowExceptionsWhenEmpty{
+
+        String validName = "Nick Ko";
+        String validEmail = "nick@gmail.com";
+        String validPhone = "07888888888";
+        String whiteSpace= "  ";
+
+        @Test
+        @DisplayName("Test setName throws exception if whitespace")
+        void testSetNameThrowsExceptionIfWhiteSpace() {
+            // Arrange
+            Contact testContact = new Contact(validName, validEmail,validPhone);
+            // Act
+            // Assert
+            assertThrows(IllegalArgumentException.class, ()-> testContact.setName(whiteSpace));
         }
 
     }
