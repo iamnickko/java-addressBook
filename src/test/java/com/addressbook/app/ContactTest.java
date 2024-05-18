@@ -193,4 +193,26 @@ public class ContactTest {
         }
     }
 
+    @Nested
+    class testSettersSetValidValues {
+
+        String validName = "Nick Ko";
+        String validEmail = "nick@gmail.com";
+        String validPhone = "07888888888";
+        String newValidName = "Hydrogen Helium";
+        String newValidEmail = "magnesium@mercury.com";
+        String newValidPhone = "07999999999";
+
+        @Test
+        @DisplayName("Test setname sets a new valid value")
+        void testSetNameSetsANewValidValue () {
+            // Arrange
+            Contact testContact = new Contact(validName, validEmail, validPhone);
+            String expected = newValidName;
+            // Act
+            testContact.setName(newValidName);
+            // Assert
+            assertEquals(expected, testContact.getName());
+        }
+    }
 }
