@@ -172,6 +172,15 @@ public class ContactTest {
             assertThrows(IllegalArgumentException.class, ()-> testContact.setName(whiteSpace));
         }
 
+        @Test
+        @DisplayName("Test setEmail throws exception if whitespace")
+        void testSetEmailThrowsExceptionIfWhiteSpace() {
+            // Arrange
+            Contact testContact = new Contact(validName, validEmail, validPhone);
+            // Act
+            // Assert
+            assertThrows(IllegalArgumentException.class, ()-> testContact.setEmail(whiteSpace));
+        }
     }
 
 }
