@@ -60,4 +60,18 @@ public class AddressBookTest {
         // Assert
         assertThrows(IllegalArgumentException.class, () -> testAddressBook.addContact(null));
     }
+
+    @Test
+    @DisplayName("Test addContact throws exception when contact is already in addressBook")
+    void testAddContactThrowsExceptionWhenContactIsAlreadyInAddressBook() {
+        // Arrange
+        String validName = "Chicken Cereal";
+        AddressBook testAddressBook = new AddressBook();
+        Contact mockContact = mock(Contact.class);
+        when(mockContact.getName()).thenReturn(validName);
+        testAddressBook.addContact(mockContact);
+        // Act
+        // Assert
+        assertThrows(IllegalArgumentException.class, () -> testAddressBook.addContact(mockContact));
+    }
 }
