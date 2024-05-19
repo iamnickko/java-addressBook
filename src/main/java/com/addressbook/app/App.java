@@ -66,15 +66,18 @@ public class App {
                     String nameInput = scanner.nextLine();
                     System.out.println("Enter contact's new Name:");
                     String newNameInput = scanner.nextLine();
+                    System.out.println("entered: "+newNameInput);
                     System.out.println("Enter contact's new Email:");
                     String newEmailInput = scanner.nextLine();
                     System.out.println("Enter contact's new PhoneNumber:");
                     String newPhoneNumberInput = scanner.nextLine();
                     try {
                         addressBook.editContact(nameInput, newNameInput, newEmailInput, newPhoneNumberInput);
+                        System.out.println("Successfully edited contact's details.");
                     } catch (RuntimeException e) {
                         System.out.println(e.getMessage());
                     }
+                    break;
 
                 case "5":
                     System.out.println("Will remove a contact");

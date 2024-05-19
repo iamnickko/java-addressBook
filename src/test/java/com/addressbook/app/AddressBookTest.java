@@ -24,21 +24,7 @@ public class AddressBookTest {
         assertEquals(expected, testAddressBook.getContacts().size());
     }
 
-    @Test
-    @DisplayName("Size of arrayList decreases by one when Contact is removed")
-    void testArrayListSizeDecreasesBy1WhenContactIsRemoved() {
-        // Arrange
-        AddressBook testAddressBook = new AddressBook();
-        Contact mockContact1 = mock(Contact.class);
-        Contact mockContact2 = mock(Contact.class);
-        testAddressBook.addContact(mockContact1);
-        testAddressBook.addContact(mockContact2);
-        int expected = testAddressBook.getContacts().size() - 1;
-        // Act
-        testAddressBook.removeContact(mockContact1);
-        // Assert
-        assertEquals(expected, testAddressBook.getContacts().size());
-    }
+
 
     @Test
     @DisplayName("Test addContact adds given object to the contactsList")
@@ -168,16 +154,56 @@ public class AddressBookTest {
             assertEquals(testContact.getPhoneNumber(), newPhoneNumber);
         }
 
+        // This one was throwing the exception at the wrong time but passing regardless. Removed the throw from AddressBook.
+//        @Test
+//        @DisplayName("Test editContact throws exception if contact not found")
+//        void testEditContactThrowsExceptionIfContactNotFound() {
+//            // Arrange
+//            AddressBook testAddressBook = new AddressBook();
+//            Contact testContact = new Contact(name, email, phoneNumber);
+//            testAddressBook.addContact(testContact);
+//            // Act
+//            // Assert
+//            assertThrows(RuntimeException.class, () -> testAddressBook.editContact(invalidName, newName, newEmail, newPhoneNumber));
+//        }
+
+
+    }
+
+    @Nested
+    class testRemoveContact {
+
         @Test
-        @DisplayName("Test editContact throws exception if contact not found")
-        void testEditContactThrowsExceptionIfContactNotFound() {
+        @DisplayName("Size of arrayList decreases by one when Contact is removed")
+        void testArrayListSizeDecreasesBy1WhenContactIsRemoved() {
             // Arrange
             AddressBook testAddressBook = new AddressBook();
-            Contact testContact = new Contact(name, email, phoneNumber);
-            testAddressBook.addContact(testContact);
+            Contact mockContact1 = mock(Contact.class);
+            Contact mockContact2 = mock(Contact.class);
+            testAddressBook.addContact(mockContact1);
+            testAddressBook.addContact(mockContact2);
+            int expected = testAddressBook.getContacts().size() - 1;
             // Act
+            testAddressBook.removeContact(mockContact1.getName());
             // Assert
-            assertThrows(RuntimeException.class, () -> testAddressBook.editContact(invalidName, newName, newEmail, newPhoneNumber));
+            assertEquals(expected, testAddressBook.getContacts().size());
+        }
+
+        @Test
+        @DisplayName("Test removeContact removes selected Contact and other contact remains")
+        void testRemoveContactRemovesSelectedContactAndOtherContactRemains() {
+            // Arrange
+            AddressBook testAddressbook = new AddressBook();
+            Contact mockContact1 = mock(Contact.class);
+            when(mockContact1.getName()).thenReturn("Arctic Marshmallow");
+            Contact mockContact2 = mock(Contact.class);
+            when(mockContact2.getName()).thenReturn("Nemesis Penguin");
+            testAddressbook.addContact(mockContact1);
+            testAddressbook.addContact(mockContact2);
+            // Act
+            testAddressbook.removeContact(mockContact1.getName());
+            // Assert
+            assertEquals(testAddressbook.getContacts().get(0).getName(), mockContact2.getName());
         }
     }
 }

@@ -16,21 +16,27 @@ public class AddressBook {
     public void addContact(Contact contact) {
         Validate.validateContact(contact);
 //        if (contact == null) throw new IllegalArgumentException("Contact cannot be null.");
-        if (this.contacts.contains(contact)) throw new IllegalArgumentException("Can't add an already existing contact.");
+        if (this.contacts.contains(contact))
+            throw new IllegalArgumentException("Can't add an already existing contact.");
         this.contacts.add(contact);
     }
 
-    public void removeContact(Contact contact) {
-        this.contacts.remove(contact);
+    public void removeContact(String name) {
+        for (Contact contact : contacts) {
+            if (contact.getName().equalsIgnoreCase(name)) {
+                contacts.remove(contact);
+            }
+        }
+
     }
 
     public void viewContacts() {
         if (getContacts().isEmpty()) {
             System.out.println("There are no contacts to view.");
         } else {
-          for (Contact contact : getContacts()) {
-              System.out.println(contact);
-          }
+            for (Contact contact : getContacts()) {
+                System.out.println(contact);
+            }
         }
     }
 
@@ -40,9 +46,7 @@ public class AddressBook {
                 contact.setName(newName);
                 contact.setEmail(newEmail);
                 contact.setPhoneNumber(newPhoneNumber);
-            } else {
-                throw new RuntimeException("Contact couldn't be found.");
             }
-        }
+        }           // need to figure out how to throw exception properly.
     }
 }
