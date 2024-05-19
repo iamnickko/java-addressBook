@@ -1,8 +1,9 @@
 package com.addressbook.app;
 
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Nested;
+
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
@@ -112,4 +113,33 @@ public class AddressBookTest {
 //            assertEquals(expected, testAddressBook.viewContacts());
 //        }
 //    }
+
+    @Nested
+    class testEditContacts {
+
+        String name = "Gnarly Corkscrew";
+        String email = "spinny@twisty.com";
+        String phoneNumber = "07999999999";
+        String newName = "Iguana Baboon";
+        String newEmail = "reptile@monkey.com";
+        String newPhoneNumber = "07654362516";
+
+        @Test
+        @DisplayName("Test editContact changes email to new value")
+        void testEditContactChangesEmailToNewValue() {
+            // Arrange
+            AddressBook testAddressBook = new AddressBook();
+            Contact testContact = new Contact(name, email, phoneNumber);    // I know tightly coupled. Struggling with Mockito!
+//            Contact mockContact = mock(Contact.class);
+//            when(mockContact.getName()).thenReturn(name);
+//            when(mockContact.getEmail()).thenReturn(email);
+//            when(mockContact.getPhoneNumber()).thenReturn(phoneNumber);
+            testAddressBook.addContact(testContact);
+            // Act
+            testAddressBook.editContact(name, newName, newEmail, newPhoneNumber);
+            // Assert
+            assertEquals(testContact.getEmail(), newEmail);
+        }
+
+    }
 }

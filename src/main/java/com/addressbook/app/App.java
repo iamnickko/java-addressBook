@@ -18,8 +18,9 @@ public class App {
             System.out.println("1 View contacts");
             System.out.println("2 Add new contact");
             System.out.println("3 Search for an existing contact");
-            System.out.println("4 Remove an existing contact.");
-            System.out.println("5 Close application.");
+            System.out.println("4 Edit an existing contact");
+            System.out.println("5 Remove an existing contact.");
+            System.out.println("6 Close application.");
             System.out.println("Enter a single digit to make your selection. (1 / 2 / 3 / 4 / 5)");
             String userSelection = scanner.nextLine();
             try {
@@ -54,16 +55,27 @@ public class App {
                 case "3":
                     try {
                         System.out.println("Enter a name to search for:");
-                        scanner.nextLine();
                         String searchInput = scanner.nextLine();
-                        System.out.println(InputScanner.searchList(addressBook.getContacts(),searchInput));
+                        System.out.println(InputScanner.searchList(addressBook.getContacts(), searchInput));
                     } catch (RuntimeException e) {
                         System.out.println(e.getMessage());
                     }
                     break;
                 case "4":
-                    System.out.println("Will remove a contact");
+                    System.out.println("Which contact would you like to edit? Enter a valid name:");
+                    String nameInput = scanner.nextLine();
+                    System.out.println("Enter contact's new Name:");
+                    String newNameInput = scanner.nextLine();
+                    System.out.println("Enter contact's new Email:");
+                    String newEmailInput = scanner.nextLine();
+                    System.out.println("Enter contact's new PhoneNumber:");
+                    String newPhoneNumberInput = scanner.nextLine();
+                    addressBook.editContact(nameInput, newNameInput, newEmailInput, newPhoneNumberInput);
+
                 case "5":
+                    System.out.println("Will remove a contact");
+                    break;
+                case "6":
                     System.out.println("Closing the address book, until next time!");
                     scanner.close();
                     applicationOn = false;

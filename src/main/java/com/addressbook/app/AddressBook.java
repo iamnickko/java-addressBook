@@ -33,4 +33,14 @@ public class AddressBook {
           }
         }
     }
+
+    public void editContact(String name, String newName, String newEmail, String newPhoneNumber) {
+        for (Contact contact : contacts) {
+            if (contact.getName().equalsIgnoreCase(name)) {
+                contact.setName(newName);
+                contact.setEmail(newEmail);
+                contact.setPhoneNumber(newPhoneNumber);
+            }
+        }
+    }
 }
