@@ -179,6 +179,7 @@ public class AddressBookTest {
             // Arrange
             AddressBook testAddressBook = new AddressBook();
             Contact mockContact1 = mock(Contact.class);
+            when(mockContact1.getName()).thenReturn("Arctic Marshmallow");
             Contact mockContact2 = mock(Contact.class);
             testAddressBook.addContact(mockContact1);
             testAddressBook.addContact(mockContact2);
