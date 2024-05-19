@@ -27,7 +27,6 @@ public class AddressBook {
                 contacts.remove(contact);
             }
         }
-
     }
 
     public void viewContacts() {
