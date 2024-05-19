@@ -1,14 +1,18 @@
 package com.addressbook.app;
 
-import java.util.Scanner;
+import java.util.ArrayList;
 
 public class InputScanner {
 
-    private final Scanner scanner;
+    public static ArrayList<Contact> searchList(ArrayList<Contact> Contacts, String searchQuery) {
+    String lowerCaseSearchQuery = searchQuery.toLowerCase();
+    ArrayList<Contact> resultsList = new ArrayList<>();
 
-    public InputScanner() {
-        this.scanner = new Scanner(System.in);
+    for (Contact contact : Contacts) {
+        if (contact.getName().toLowerCase().contains(lowerCaseSearchQuery)) {
+            resultsList.add(contact);
+        }
     }
-
-
+    return resultsList;
+    }
 }

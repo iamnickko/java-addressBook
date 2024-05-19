@@ -1,6 +1,6 @@
 package com.addressbook.app;
 
-public abstract class Validate {
+public class Validate {
 
     public static final String nameRegex = "^[a-zA-Z]{2,} [a-zA-Z]+$";
 
