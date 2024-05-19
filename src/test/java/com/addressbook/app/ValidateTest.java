@@ -168,4 +168,18 @@ public class ValidateTest {
 //        }
 //    }
     }
+
+    @Nested
+    class validateUserInputsForInputScanner {
+
+        @Test
+        @DisplayName("Test validateUserInput throws runtime exception if whitespace")
+        void testValidateUserInputThrowsRuntimeExceptionIfWhiteSpace() {
+            // Arrange
+            String whitespace = "   ";
+            // Act
+            // Assert
+            assertThrows(RuntimeException.class, ()-> Validate.validateUserInput(whitespace));
+        }
+    }
 }

@@ -33,4 +33,8 @@ public class Validate {
     public static void validateContact(Contact contact) {
         if (contact == null) throw new IllegalArgumentException("Can't add null to address book.");
     }
+
+    public static void validateUserInput(String input) {
+        if (input.trim().isEmpty()) throw new RuntimeException("You can't enter an empty value.");
+    }
 }

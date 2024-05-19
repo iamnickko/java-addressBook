@@ -31,7 +31,6 @@ public class AddressBook {
           for (Contact contact : getContacts()) {
               System.out.println(contact);
           }
-
         }
     }
 }
