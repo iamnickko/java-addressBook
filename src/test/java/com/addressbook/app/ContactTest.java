@@ -259,5 +259,17 @@ public class ContactTest {
             // Assert
             assertTrue(testContact.toString().contains(expectedName));
         }
+
+        @Test
+        @DisplayName("Test override toString contains expected email")
+        void testOverrideToStringContainsExpectedEmail() {
+            // Arrange
+            Contact testContact = new Contact(validName, validEmail, validPhoneNumber);
+            String expectedEmail = validEmail;
+            // Act
+            // Assert
+            assertTrue(testContact.toString().contains(validEmail));
+
+        }
     }
 }
