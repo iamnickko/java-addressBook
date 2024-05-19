@@ -257,7 +257,7 @@ public class ContactTest {
             String expectedName = validName;
             // Act
             // Assert
-            assertTrue(testContact.toString().contains(expectedName));
+            assertTrue(testContact.getName().toString().contains(expectedName));
         }
 
         @Test
@@ -268,7 +268,7 @@ public class ContactTest {
             String expectedEmail = validEmail;
             // Act
             // Assert
-            assertTrue(testContact.toString().contains(validEmail));
+            assertTrue(testContact.getEmail().toString().contains(expectedEmail));
 
         }
     }

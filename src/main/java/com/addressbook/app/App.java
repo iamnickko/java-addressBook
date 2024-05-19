@@ -13,7 +13,7 @@ public class App {
     addressBook.addContact(anotherContact);
         System.out.println(addressBook.getContacts());
         System.out.println(nick.toString());
-        System.out.println(nick.getName().toString());
+        System.out.println(nick.getName());
     }
 
 }
