@@ -243,7 +243,7 @@ public class ContactTest {
     }
 
     @Nested
-    class testToStringOverride {                // need to come back to this one
+    class testToStringOverride {
 
         String validName = "Juggernaut Kitkat";
         String validEmail = "kittykat@meowmeow.com";
@@ -257,6 +257,7 @@ public class ContactTest {
             String expectedName = validName;
             // Act
             // Assert
+            assertTrue(testContact.toString().contains(expectedName));
         }
     }
 }

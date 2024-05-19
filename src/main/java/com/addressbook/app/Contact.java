@@ -46,7 +46,7 @@ public class Contact {
         this.phoneNumber = phoneNumber;
     }
 
-    // Override toString method for sout printing
+    // Override toString method for system printing
     @Override
     public String toString() {
         return String.format("Contact: {Name: %s, Email: %s, PhoneNumber: %s ", this.getName(), this.getEmail(), this.getPhoneNumber());
