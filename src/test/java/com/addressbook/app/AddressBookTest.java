@@ -3,8 +3,7 @@ package com.addressbook.app;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -73,5 +72,16 @@ public class AddressBookTest {
         // Act
         // Assert
         assertThrows(IllegalArgumentException.class, () -> testAddressBook.addContact(mockContact));
+    }
+
+    @Test
+    @DisplayName("Test viewContacts prints empty message if there are no contacts to view")
+    void testViewContactsPrintsEmptyMessageIfThereAreNoContactsToView() {
+        // Arrange
+        AddressBook testAddressBook = new AddressBook();
+        String expected = "There are no contacts to view.";
+        // Act
+        // Assert
+        assertEquals(expected, testAddressBook.viewContacts());
     }
 }

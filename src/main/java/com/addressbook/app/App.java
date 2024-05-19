@@ -11,9 +11,10 @@ public class App {
     addressBook.addContact(nick);
     Contact anotherContact = new Contact("Missle Potato", "potato@missile.com", "07887642613");
     addressBook.addContact(anotherContact);
-        System.out.println(addressBook.getContacts());
-        System.out.println(nick.toString());
-        System.out.println(nick.getName());
+//        System.out.println(addressBook.getContacts());
+//        System.out.println(nick.toString());
+//        System.out.println(nick.getName());
+        addressBook.viewContacts();
     }
 
 }

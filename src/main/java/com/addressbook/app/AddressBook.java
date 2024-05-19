@@ -22,4 +22,11 @@ public class AddressBook {
     public void removeContact(Contact contact) {
         this.contacts.remove(contact);
     }
+
+    public String viewContacts() {
+        if (getContacts().isEmpty()) {
+            return "There are no contacts to view.";
+        }
+        return "there will be something to show here.";
+    }
 }
