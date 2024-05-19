@@ -120,9 +120,10 @@ public class AddressBookTest {
         String name = "Gnarly Corkscrew";
         String email = "spinny@twisty.com";
         String phoneNumber = "07999999999";
-        String newName = "Iguana Baboon";
-        String newEmail = "reptile@monkey.com";
+        String newName = "Prison Donkey";
+        String newEmail = "itsreallya@zebra.com";
         String newPhoneNumber = "07654362516";
+        String invalidName = "Leeds Bradford";
 
         @Test
         @DisplayName("Test editContact changes email to new value")
@@ -149,7 +150,7 @@ public class AddressBookTest {
             Contact testContact = new Contact(name, email, phoneNumber);
             testAddressBook.addContact(testContact);
             // Act
-            testAddressBook.editContact(name, newName, newEmail,newPhoneNumber);
+            testAddressBook.editContact(name, newName, newEmail, newPhoneNumber);
             // Assert
             assertEquals(testContact.getName(), newName);
         }
@@ -162,9 +163,21 @@ public class AddressBookTest {
             Contact testContact = new Contact(name, email, phoneNumber);
             testAddressBook.addContact(testContact);
             // Act
-            testAddressBook.editContact(name, newName, newEmail,newPhoneNumber);
+            testAddressBook.editContact(name, newName, newEmail, newPhoneNumber);
             // Assert
             assertEquals(testContact.getPhoneNumber(), newPhoneNumber);
+        }
+
+        @Test
+        @DisplayName("Test editContact throws exception if contact not found")
+        void testEditContactThrowsExceptionIfContactNotFound() {
+            // Arrange
+            AddressBook testAddressBook = new AddressBook();
+            Contact testContact = new Contact(name, email, phoneNumber);
+            testAddressBook.addContact(testContact);
+            // Act
+            // Assert
+            assertThrows(RuntimeException.class, () -> testAddressBook.editContact(invalidName, newName, newEmail, newPhoneNumber));
         }
     }
 }

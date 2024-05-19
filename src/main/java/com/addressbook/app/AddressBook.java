@@ -40,6 +40,8 @@ public class AddressBook {
                 contact.setName(newName);
                 contact.setEmail(newEmail);
                 contact.setPhoneNumber(newPhoneNumber);
+            } else {
+                throw new RuntimeException("Contact couldn't be found.");
             }
         }
     }

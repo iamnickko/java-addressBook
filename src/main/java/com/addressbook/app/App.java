@@ -70,7 +70,11 @@ public class App {
                     String newEmailInput = scanner.nextLine();
                     System.out.println("Enter contact's new PhoneNumber:");
                     String newPhoneNumberInput = scanner.nextLine();
-                    addressBook.editContact(nameInput, newNameInput, newEmailInput, newPhoneNumberInput);
+                    try {
+                        addressBook.editContact(nameInput, newNameInput, newEmailInput, newPhoneNumberInput);
+                    } catch (RuntimeException e) {
+                        System.out.println(e.getMessage());
+                    }
 
                 case "5":
                     System.out.println("Will remove a contact");
