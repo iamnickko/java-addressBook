@@ -40,6 +40,18 @@ public class AddressBookTest {
     }
 
     @Test
+    @DisplayName("Test addContact adds given object to the contactsList")
+    void testAddContactAddsGivenObjectToTheContactsList() {
+        // Arrange
+        AddressBook testAddressBook = new AddressBook();
+        Contact mockContact = mock(Contact.class);
+        // Act
+        testAddressBook.addContact(mockContact);
+        // Assert
+        assertEquals(mockContact, testAddressBook.getContacts().get(0));
+    }
+
+    @Test
     @DisplayName("Test addContact throws exception when contact is null")
     void testAddContactThrowsExceptionWhenContactIsNull() {
         // Arrange
