@@ -13,6 +13,9 @@ public class InputScanner {
             resultsList.add(contact);
         }
     }
+    if (resultsList.isEmpty()) {
+        throw new RuntimeException("There are no matching results to display");
+    }
     return resultsList;
     }
 }

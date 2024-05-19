@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -23,6 +23,19 @@ public class InputScannerTest {
         ArrayList<Contact> actual = InputScanner.searchList(testContacts, "eng");
         // Assert
         assertTrue(actual.contains(mockContact));
+    }
+
+    @Test
+    @DisplayName("Test searchList throws exception when there are no matching results")
+    void testSearchListReturnsMessageWhenNoMatches() {
+        // Arrange
+        Contact mockContact = mock(Contact.class);
+        when(mockContact.getName()).thenReturn("Yorkshire Gold");
+        ArrayList<Contact> testContacts = new ArrayList<>();
+        testContacts.add(mockContact);
+        // Act
+        // Assert
+        assertThrows(RuntimeException.class, () -> InputScanner.searchList(testContacts, "Tea") );
     }
 
 }
