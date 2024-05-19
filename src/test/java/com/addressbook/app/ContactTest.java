@@ -254,10 +254,10 @@ public class ContactTest {
         void testOverrideToStringContainsExpectedName() {
             // Arrange
             Contact testContact = new Contact(validName, validEmail, validPhoneNumber);
-            String expectedName = validName;
+            String expectedName ="Name: " + validName;
             // Act
             // Assert
-            assertTrue(testContact.getName().toString().contains(expectedName));
+            assertTrue(testContact.toString().contains(expectedName));
         }
 
         @Test
@@ -265,10 +265,10 @@ public class ContactTest {
         void testOverrideToStringContainsExpectedEmail() {
             // Arrange
             Contact testContact = new Contact(validName, validEmail, validPhoneNumber);
-            String expectedEmail = validEmail;
+            String expectedEmail = "Email: " + validEmail;
             // Act
             // Assert
-            assertTrue(testContact.getEmail().toString().contains(expectedEmail));
+            assertTrue(testContact.toString().contains(expectedEmail));
         }
 
         @Test
@@ -276,10 +276,10 @@ public class ContactTest {
         void testOverrideToStringContainsExpectedPhoneNumber() {
             // Arrange
             Contact testContact = new Contact(validName, validEmail, validPhoneNumber);
-            String expectedPhoneNumber = validPhoneNumber;
+            String expectedPhoneNumber = "PhoneNumber: " + validPhoneNumber;
             // Act
             // Assert
-            assertTrue(testContact.getPhoneNumber().toString().contains(expectedPhoneNumber));
+            assertTrue(testContact.toString().contains(expectedPhoneNumber));
         }
     }
 }
