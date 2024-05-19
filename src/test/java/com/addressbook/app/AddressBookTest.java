@@ -153,5 +153,18 @@ public class AddressBookTest {
             // Assert
             assertEquals(testContact.getName(), newName);
         }
+
+        @Test
+        @DisplayName("Test editContact changes phoneNumber to new value")
+        void testEditContactChangesPhoneNumberToNewValue() {
+            // Arrange
+            AddressBook testAddressBook = new AddressBook();
+            Contact testContact = new Contact(name, email, phoneNumber);
+            testAddressBook.addContact(testContact);
+            // Act
+            testAddressBook.editContact(name, newName, newEmail,newPhoneNumber);
+            // Assert
+            assertEquals(testContact.getPhoneNumber(), newPhoneNumber);
+        }
     }
 }
