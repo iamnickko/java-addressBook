@@ -23,10 +23,14 @@ public class AddressBook {
         this.contacts.remove(contact);
     }
 
-    public String viewContacts() {
+    public void viewContacts() {
         if (getContacts().isEmpty()) {
-            return "There are no contacts to view.";
+            System.out.println("There are no contacts to view.");
+        } else {
+          for (Contact contact : getContacts()) {
+              System.out.println(contact);
+          }
+
         }
-        return "there will be something to show here.";
     }
 }

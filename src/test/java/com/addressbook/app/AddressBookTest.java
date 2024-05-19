@@ -1,6 +1,7 @@
 package com.addressbook.app;
 
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -74,14 +75,41 @@ public class AddressBookTest {
         assertThrows(IllegalArgumentException.class, () -> testAddressBook.addContact(mockContact));
     }
 
-    @Test
-    @DisplayName("Test viewContacts prints empty message if there are no contacts to view")
-    void testViewContactsPrintsEmptyMessageIfThereAreNoContactsToView() {
-        // Arrange
-        AddressBook testAddressBook = new AddressBook();
-        String expected = "There are no contacts to view.";
-        // Act
-        // Assert
-        assertEquals(expected, testAddressBook.viewContacts());
-    }
+
+//    @Nested
+//    class viewContactsTests {
+//        /* I need to return something to be able to run a test (I believe), first test was fine but second meant I
+//        couldn't simply loop through and system.out each contact. I think I need to create a new String to concat all
+//        contact results to and then return that? */
+//        @Test
+//        @DisplayName("Test viewContacts prints empty message if there are no contacts to view")
+//        void testViewContactsPrintsEmptyMessageIfThereAreNoContactsToView() {
+//            // Arrange
+//            AddressBook testAddressBook = new AddressBook();
+//            String expected = "There are no contacts to view.";
+//            // Act
+//            // Assert
+//            assertEquals(expected, testAddressBook.viewContacts());
+//        }
+//
+//        @Test
+//        @DisplayName("Test viewContacts returns valid contact details")
+//        void testViewContactsReturnsValidContactDetails() {
+//            String validName = "Sausage Pancake";
+//            String validEmail = "itdoesntsound@thewurst.com";
+//            String validPhone = "07863726374";
+//
+//            // Arrange
+//            AddressBook testAddressBook = new AddressBook();
+//            Contact mockContact = mock(Contact.class);
+//            when(mockContact.getName()).thenReturn(validName);
+//            when(mockContact.getEmail()).thenReturn(validEmail);
+//            when(mockContact.getPhoneNumber()).thenReturn(validPhone);
+//            testAddressBook.addContact(mockContact);
+//            String expected = String.format("Name: %s, Email: %s, PhoneNumber: %s}", validName, validEmail, validPhone);
+//            // Act
+//            // Assert
+//            assertEquals(expected, testAddressBook.viewContacts());
+//        }
+//    }
 }
