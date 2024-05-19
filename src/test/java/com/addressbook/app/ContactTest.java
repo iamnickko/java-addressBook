@@ -269,7 +269,17 @@ public class ContactTest {
             // Act
             // Assert
             assertTrue(testContact.getEmail().toString().contains(expectedEmail));
+        }
 
+        @Test
+        @DisplayName("Test override toString contains expected phoneNumber")
+        void testOverrideToStringContainsExpectedPhoneNumber() {
+            // Arrange
+            Contact testContact = new Contact(validName, validEmail, validPhoneNumber);
+            String expectedPhoneNumber = validPhoneNumber;
+            // Act
+            // Assert
+            assertTrue(testContact.getPhoneNumber().toString().contains(expectedPhoneNumber));
         }
     }
 }
