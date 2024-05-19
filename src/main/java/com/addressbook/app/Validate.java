@@ -37,4 +37,11 @@ public class Validate {
     public static void validateUserInput(String input) {
         if (input.trim().isEmpty()) throw new RuntimeException("You can't enter an empty value.");
     }
+
+    public static void validateUserInputMenu(String input) {
+        if (!input.matches("^[1-5]$"))
+            throw new RuntimeException("Please make a selection of a single digit between 1 - 5.");
+    }
 }
+
+

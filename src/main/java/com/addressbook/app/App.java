@@ -21,13 +21,19 @@ public class App {
             System.out.println("4 Remove an existing contact.");
             System.out.println("5 Close application.");
             System.out.println("Enter a single digit to make your selection. (1 / 2 / 3 / 4 / 5)");
-            int userSelection = scanner.nextInt();
+            String userSelection = scanner.nextLine();
+            try {
+                Validate.validateUserInputMenu(userSelection);
+            } catch (RuntimeException e) {
+                System.out.println(e.getMessage());
+            }
+
 
             switch (userSelection) {
-                case 1:
+                case "1":
                     addressBook.viewContacts();
                     break;
-                case 2:
+                case "2":
                     try {
                         System.out.println("Enter contact's full name:");
                         scanner.nextLine();
@@ -45,7 +51,7 @@ public class App {
                         System.out.println(e.getMessage());
                     }
                     break;
-                case 3:
+                case "3":
                     try {
                         System.out.println("Enter a name to search for:");
                         scanner.nextLine();
@@ -55,9 +61,9 @@ public class App {
                         System.out.println(e.getMessage());
                     }
                     break;
-                case 4:
+                case "4":
                     System.out.println("Will remove a contact");
-                case 5:
+                case "5":
                     System.out.println("Closing the address book, until next time!");
                     scanner.close();
                     applicationOn = false;

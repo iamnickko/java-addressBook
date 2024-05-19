@@ -181,5 +181,15 @@ public class ValidateTest {
             // Assert
             assertThrows(RuntimeException.class, ()-> Validate.validateUserInput(whitespace));
         }
+
+        @Test
+        @DisplayName("Test validateUserInputMenu throws runtime exception if not 1-5")
+        void testValidateUserInputMenuThrowsRuntimeExceptionIfNotValid() {
+            // Arrange
+            String invalidInput = "chicken nuggs";
+            // Act
+            // Assert
+            assertThrows(RuntimeException.class, () -> Validate.validateUserInputMenu(invalidInput));
+        }
     }
 }
