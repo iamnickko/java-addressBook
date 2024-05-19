@@ -8,6 +8,8 @@ classDiagram
         +getContacts() ArrayList<Contact>
         +addContact(Contact Contact) void
         +removeContact(Contact Contact) void
+        +viewContacts() void
+        +editContact() void
     }
     class Contact {
         -name String
@@ -21,11 +23,17 @@ classDiagram
         +getPhoneNumber() String
         +setPhoneNumber() void
     }
-    class abstract Validate {
+    class Validate {
         +validateName()$ boolean
         +validateEmail()$ boolean
         +validatePhoneNumber()$ boolean
+        +validateContact()$ void
+        +validateUserInputMenu()$ void
         +checkDuplicateEmail()$ boolean
         +checkDuplicatePhoneNumber()$ boolean
+    }
+    class InputScanner {
+        +searchList()$ ArrayList<Contact>
+        
     }
 ```
