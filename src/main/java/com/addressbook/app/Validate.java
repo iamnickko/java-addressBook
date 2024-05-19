@@ -30,8 +30,7 @@ public class Validate {
         return phoneNumber.matches(phoneNumberRegex);
     }
 
-    public static boolean validateContact(Contact contact) {
+    public static void validateContact(Contact contact) {
         if (contact == null) throw new IllegalArgumentException("Can't add null to address book.");
-        return true;
     }
 }

@@ -14,7 +14,8 @@ public class AddressBook {
     }
 
     public void addContact(Contact contact) {
-        if (contact == null) throw new IllegalArgumentException("Contact cannot be null.");
+        Validate.validateContact(contact);
+//        if (contact == null) throw new IllegalArgumentException("Contact cannot be null.");
         if (this.contacts.contains(contact)) throw new IllegalArgumentException("Can't add an already existing contact.");
         this.contacts.add(contact);
     }

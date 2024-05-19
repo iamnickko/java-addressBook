@@ -51,7 +51,7 @@ public class App {
                         scanner.nextLine();
                         String searchInput = scanner.nextLine();
                         System.out.println(InputScanner.searchList(addressBook.getContacts(),searchInput));
-                    } catch (IllegalArgumentException e) {
+                    } catch (RuntimeException e) {
                         System.out.println(e.getMessage());
                     }
                     break;
