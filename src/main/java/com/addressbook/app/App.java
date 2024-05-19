@@ -10,8 +10,8 @@ import java.util.Scanner;
 * - I'd move editContact() from AddressBook into Contact - better single responsibility. Contact for creating & editing,
 *   AddressBook for holding, removing, & viewing.
 * - Testing suites could be refactored with beforeEach & afterEach. I also struggled with how to make mocks behave how I
-    wanted, particularly with creating a mock AddressBook, so there's a couple of instances of tightly coupling other
-    classes to tests. */
+*   wanted, particularly with creating a mock AddressBook, so there's a couple of instances of tightly coupling other
+*   classes to tests. */
 
 
 public class App {
