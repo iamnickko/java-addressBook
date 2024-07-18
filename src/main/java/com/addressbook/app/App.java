@@ -21,38 +21,38 @@ public class App {
         Scanner scanner = new Scanner(System.in);
 
         while (applicationOn) {
-            InputScanner.displayMenu();
-            String userSelection = InputScanner.captureMenuInput(scanner);
+            UserInput.displayMenu();
+            String userSelection = UserInput.captureMenuInput(scanner);
 
 
             switch (userSelection) {
                 case "1":
-                    InputScanner.menuHeader("CONTACT LIST");
+                    UserInput.menuHeader("CONTACT LIST");
                     addressBook.viewContacts();
                     break;
                 case "2":
-                    InputScanner.menuHeader("ADD A NEW CONTACT");
+                    UserInput.menuHeader("ADD A NEW CONTACT");
                     try {
-                        String nameInput = InputScanner.captureInput("Enter contact's full name:", scanner);
-                        String emailInput = InputScanner.captureInput("Enter contact's email address:", scanner);
-                        String phoneInput = InputScanner.captureInput("Enter contact's phone number:", scanner);
+                        String nameInput = UserInput.captureInput("Enter contact's full name:", scanner);
+                        String emailInput = UserInput.captureInput("Enter contact's email address:", scanner);
+                        String phoneInput = UserInput.captureInput("Enter contact's phone number:", scanner);
                         addressBook.addContact(new Contact(nameInput, emailInput, phoneInput));
                     } catch (IllegalArgumentException e) {
                         System.out.println(e.getMessage());
                     }
                     break;
                 case "3":
-                    InputScanner.menuHeader("SEARCH CONTACTS");
+                    UserInput.menuHeader("SEARCH CONTACTS");
                     try {
                         System.out.println("Enter a name to search for:");
                         String searchInput = scanner.nextLine();
-                        System.out.println(InputScanner.searchList(addressBook.getContacts(), searchInput));
+                        System.out.println(UserInput.searchList(addressBook.getContacts(), searchInput));
                     } catch (RuntimeException e) {
                         System.out.println(e.getMessage());
                     }
                     break;
                 case "4":
-                    InputScanner.menuHeader("EDIT CONTACT");
+                    UserInput.menuHeader("EDIT CONTACT");
                     System.out.println("Which contact would you like to edit? Enter a valid name:");
                     String nameInput = scanner.nextLine();
                     System.out.println("Enter contact's new Name:");
@@ -71,7 +71,7 @@ public class App {
                     break;
 
                 case "5":
-                    InputScanner.menuHeader("REMOVE CONTACT");
+                    UserInput.menuHeader("REMOVE CONTACT");
                     System.out.println("Which contact would you like to remove? Enter a valid name:");
                     String toRemoveInput = scanner.nextLine();
                     try {

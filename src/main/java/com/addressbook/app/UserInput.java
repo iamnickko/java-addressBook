@@ -3,7 +3,7 @@ package com.addressbook.app;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class InputScanner {
+public class UserInput {
 
     public static ArrayList<Contact> searchList(ArrayList<Contact> Contacts, String searchQuery) {
         String lowerCaseSearchQuery = searchQuery.toLowerCase();

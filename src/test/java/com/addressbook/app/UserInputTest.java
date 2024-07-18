@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-public class InputScannerTest {
+public class UserInputTest {
 
     @Test
     @DisplayName("Test searchList matches matching contact")
@@ -20,7 +20,7 @@ public class InputScannerTest {
         ArrayList<Contact> testContacts = new ArrayList<>();
         testContacts.add(mockContact);
         // Act
-        ArrayList<Contact> actual = InputScanner.searchList(testContacts, "eng");
+        ArrayList<Contact> actual = UserInput.searchList(testContacts, "eng");
         // Assert
         assertTrue(actual.contains(mockContact));
     }
@@ -35,7 +35,7 @@ public class InputScannerTest {
         testContacts.add(mockContact);
         // Act
         // Assert
-        assertThrows(RuntimeException.class, () -> InputScanner.searchList(testContacts, "Tea") );
+        assertThrows(RuntimeException.class, () -> UserInput.searchList(testContacts, "Tea") );
     }
 
 }

@@ -170,7 +170,7 @@ public class ValidateTest {
     }
 
     @Nested
-    class validateUserInputsForInputScanner {
+    class validateUserInputsForUserInput {
 
         @Test
         @DisplayName("Test validateUserInput throws runtime exception if whitespace")
