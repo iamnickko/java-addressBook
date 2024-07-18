@@ -21,17 +21,17 @@ public class App {
         Scanner scanner = new Scanner(System.in);
 
         while (applicationOn) {
-            UserInput.displayMenu();
+            MenuPrinter.displayMenu();
             String userSelection = UserInput.captureMenuInput(scanner);
 
 
             switch (userSelection) {
                 case "1":
-                    UserInput.menuHeader("CONTACT LIST");
+                    MenuPrinter.menuHeader("CONTACT LIST");
                     addressBook.viewContacts();
                     break;
                 case "2":
-                    UserInput.menuHeader("ADD A NEW CONTACT");
+                    MenuPrinter.menuHeader("ADD A NEW CONTACT");
                     try {
                         String nameInput = UserInput.captureInput("Enter contact's full name:", scanner);
                         String emailInput = UserInput.captureInput("Enter contact's email address:", scanner);
@@ -42,7 +42,7 @@ public class App {
                     }
                     break;
                 case "3":
-                    UserInput.menuHeader("SEARCH CONTACTS");
+                    MenuPrinter.menuHeader("SEARCH CONTACTS");
                     try {
                         System.out.println("Enter a name to search for:");
                         String searchInput = scanner.nextLine();
@@ -52,7 +52,7 @@ public class App {
                     }
                     break;
                 case "4":
-                    UserInput.menuHeader("EDIT CONTACT");
+                    MenuPrinter.menuHeader("EDIT CONTACT");
                     System.out.println("Which contact would you like to edit? Enter a valid name:");
                     String nameInput = scanner.nextLine();
                     System.out.println("Enter contact's new Name:");
@@ -71,7 +71,7 @@ public class App {
                     break;
 
                 case "5":
-                    UserInput.menuHeader("REMOVE CONTACT");
+                    MenuPrinter.menuHeader("REMOVE CONTACT");
                     System.out.println("Which contact would you like to remove? Enter a valid name:");
                     String toRemoveInput = scanner.nextLine();
                     try {
