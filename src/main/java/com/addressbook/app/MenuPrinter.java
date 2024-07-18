@@ -11,7 +11,7 @@ public class MenuPrinter {
         System.out.println("4. Edit an existing contact");
         System.out.println("5. Remove an existing contact.");
         System.out.println("6. Close application.");
-        System.out.println("Enter a single digit to make your selection. (1 / 2 / 3 / 4 / 5)");
+        System.out.println("Enter a single digit to make your selection. (1 / 2 / 3 / 4 / 5 / 6)");
     }
 
     public static void menuHeader(String heading) {

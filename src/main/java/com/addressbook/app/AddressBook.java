@@ -25,6 +25,7 @@ public class AddressBook {
         for (Contact contact : contacts) {
             if (contact.getName().equalsIgnoreCase(name)) {
                 contacts.remove(contact);
+                System.out.println("Successfully removed contact.");
             }
         }
     }
@@ -45,6 +46,7 @@ public class AddressBook {
                 contact.setName(newName);
                 contact.setEmail(newEmail);
                 contact.setPhoneNumber(newPhoneNumber);
+
             }
         }
     }

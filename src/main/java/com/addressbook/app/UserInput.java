@@ -21,7 +21,6 @@ public class UserInput {
     }
 
 
-
     public static String captureMenuInput(Scanner scanner) {
         String userInput;
         while (true) {

@@ -35,7 +35,7 @@ public class App {
                     try {
                         String nameInput = UserInput.captureInput("Enter contact's full name:", scanner);
                         String emailInput = UserInput.captureInput("Enter contact's email address:", scanner);
-                        String phoneInput = UserInput.captureInput("Enter contact's phone number:", scanner);
+                        String phoneInput = UserInput.captureInput("Enter contact's phone number (11 digit mobile - e.g. 07XXXXXXXXX):", scanner);
                         addressBook.addContact(new Contact(nameInput, emailInput, phoneInput));
                     } catch (IllegalArgumentException e) {
                         System.out.println(e.getMessage());
@@ -53,18 +53,13 @@ public class App {
                     break;
                 case "4":
                     MenuPrinter.menuHeader("EDIT CONTACT");
-                    System.out.println("Which contact would you like to edit? Enter a valid name:");
-                    String nameInput = scanner.nextLine();
-                    System.out.println("Enter contact's new Name:");
-                    String newNameInput = scanner.nextLine();
-                    System.out.println("entered: " + newNameInput);
-                    System.out.println("Enter contact's new Email:");
-                    String newEmailInput = scanner.nextLine();
-                    System.out.println("Enter contact's new PhoneNumber:");
-                    String newPhoneNumberInput = scanner.nextLine();
                     try {
+                        String nameInput = UserInput.captureInput("Which contact would you like to edit? Enter their full name:", scanner);
+                        String newNameInput = UserInput.captureInput("Enter contact's new Name:", scanner);
+                        String newEmailInput = UserInput.captureInput("Enter contact's new Email:", scanner);
+                        String newPhoneNumberInput = UserInput.captureInput("Enter contact's new PhoneNumber (11 digit mobile - e.g. 07XXXXXXXXX):", scanner);
                         addressBook.editContact(nameInput, newNameInput, newEmailInput, newPhoneNumberInput);
-                        System.out.println("Successfully edited contact's details.");
+                        System.out.printf("Successfully edited contact's details to: %s, %s, %s %n", newNameInput, newEmailInput, newPhoneNumberInput);
                     } catch (RuntimeException e) {
                         System.out.println(e.getMessage());
                     }
@@ -72,11 +67,9 @@ public class App {
 
                 case "5":
                     MenuPrinter.menuHeader("REMOVE CONTACT");
-                    System.out.println("Which contact would you like to remove? Enter a valid name:");
-                    String toRemoveInput = scanner.nextLine();
                     try {
+                        String toRemoveInput = UserInput.captureInput("Which contact would you like to remove? Enter their full name:", scanner);
                         addressBook.removeContact(toRemoveInput);
-                        System.out.println("Successfully removed contact.");
                     } catch (RuntimeException e) {
                         System.out.println(e.getMessage());
                     }
