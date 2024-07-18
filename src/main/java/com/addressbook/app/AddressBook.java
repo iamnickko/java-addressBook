@@ -15,10 +15,10 @@ public class AddressBook {
 
     public void addContact(Contact contact) {
         Validate.validateContact(contact);
-//        if (contact == null) throw new IllegalArgumentException("Contact cannot be null.");
         if (this.contacts.contains(contact))
             throw new IllegalArgumentException("Can't add an already existing contact.");
         this.contacts.add(contact);
+        System.out.printf("Successfully added Name: %s Email: %s PhoneNumber: %s%n", contact.getName(), contact.getEmail(), contact.getPhoneNumber());
     }
 
     public void removeContact(String name) {
@@ -46,6 +46,6 @@ public class AddressBook {
                 contact.setEmail(newEmail);
                 contact.setPhoneNumber(newPhoneNumber);
             }
-        }           // need to figure out how to throw exception properly.
+        }
     }
 }

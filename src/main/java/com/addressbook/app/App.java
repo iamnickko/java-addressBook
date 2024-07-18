@@ -20,59 +20,29 @@ public class App {
         AddressBook addressBook = new AddressBook();
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Welcome to your address book.");
-        System.out.println("==============");
         while (applicationOn) {
-            System.out.println("MENU");
-            System.out.println("==============");
-            System.out.println("1. View contacts");
-            System.out.println("2. Add new contact");
-            System.out.println("3. Search for an existing contact");
-            System.out.println("4. Edit an existing contact");
-            System.out.println("5. Remove an existing contact.");
-            System.out.println("6. Close application.");
-            System.out.println("Enter a single digit to make your selection. (1 / 2 / 3 / 4 / 5)");
-            String userSelection = scanner.nextLine();
-            try {
-                Validate.validateUserInputMenu(userSelection);
-            } catch (RuntimeException e) {
-                System.out.println(e.getMessage());
-            }
+            InputScanner.displayMenu();
+            String userSelection = InputScanner.captureMenuInput(scanner);
 
 
             switch (userSelection) {
                 case "1":
-                    System.out.println("==============");
-                    System.out.println("CONTACT LIST");
-                    System.out.println("==============");
+                    InputScanner.menuHeader("CONTACT LIST");
                     addressBook.viewContacts();
-                    System.out.println("==============");
                     break;
                 case "2":
-                    System.out.println("==============");
-                    System.out.println("ADD A NEW CONTACT");
-                    System.out.println("==============");
+                    InputScanner.menuHeader("ADD A NEW CONTACT");
                     try {
-                        System.out.println("Enter contact's full name:");
-//                        scanner.nextLine();   // Occasionally, this was needed to stop email running immediately after name. ?!
-                        String nameInput = scanner.nextLine();
-                        System.out.println("You entered " + nameInput);
-                        System.out.println("Enter contact's email address:");
-                        String emailInput = scanner.nextLine();
-                        System.out.println("You entered " + emailInput);
-                        System.out.println("Enter contact's phone number (11 digit mobile - e.g. 07XXXXXXXXX)");
-                        String phoneInput = scanner.nextLine();
-                        System.out.println("You entered " + phoneInput);
+                        String nameInput = InputScanner.captureInput("Enter contact's full name:", scanner);
+                        String emailInput = InputScanner.captureInput("Enter contact's email address:", scanner);
+                        String phoneInput = InputScanner.captureInput("Enter contact's phone number:", scanner);
                         addressBook.addContact(new Contact(nameInput, emailInput, phoneInput));
-                        System.out.printf("Successfully added Name: %s Email: %s PhoneNumber: %s%n", nameInput, emailInput, phoneInput);
                     } catch (IllegalArgumentException e) {
                         System.out.println(e.getMessage());
                     }
                     break;
                 case "3":
-                    System.out.println("==============");
-                    System.out.println("SEARCH");
-                    System.out.println("==============");
+                    InputScanner.menuHeader("SEARCH CONTACTS");
                     try {
                         System.out.println("Enter a name to search for:");
                         String searchInput = scanner.nextLine();
@@ -82,9 +52,7 @@ public class App {
                     }
                     break;
                 case "4":
-                    System.out.println("==============");
-                    System.out.println("EDIT CONTACT");
-                    System.out.println("==============");
+                    InputScanner.menuHeader("EDIT CONTACT");
                     System.out.println("Which contact would you like to edit? Enter a valid name:");
                     String nameInput = scanner.nextLine();
                     System.out.println("Enter contact's new Name:");
@@ -103,9 +71,7 @@ public class App {
                     break;
 
                 case "5":
-                    System.out.println("==============");
-                    System.out.println("REMOVE CONTACT");
-                    System.out.println("==============");
+                    InputScanner.menuHeader("REMOVE CONTACT");
                     System.out.println("Which contact would you like to remove? Enter a valid name:");
                     String toRemoveInput = scanner.nextLine();
                     try {

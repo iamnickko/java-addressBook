@@ -40,7 +40,7 @@ public class Validate {
 
     public static void validateUserInputMenu(String input) {
         if (!input.matches("^[1-6]$"))
-            throw new RuntimeException("Please make a selection of a single digit between 1 - 5.");
+            throw new RuntimeException("Please make a selection of a single digit between 1 - 6.");
     }
 }
 
