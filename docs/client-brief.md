@@ -26,3 +26,14 @@ This test driven application offers a significantly higher level of security and
 client's personal details. With the system's validation functions throughout the application, all new and edited
 contacts will conform to a standard format even if there are many staff users with varying preferences of detail
 formatting.
+
+---
+
+## User Stories
+
+![userStory1.JPG](userStory1.JPG)\
+![userStory2.JPG](userStory2.JPG)\
+![userStory3.JPG](userStory3.JPG)\
+![userStory4.JPG](userStory4.JPG)\
+![userStory5.JPG](userStory5.JPG)\
+
